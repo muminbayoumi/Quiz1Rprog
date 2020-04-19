@@ -1,0 +1,45 @@
+---
+title: "Q1"
+author: "Mumin Mohamed"
+date: "19 April 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+Q1 <-  read.csv('hw1_data.csv',header = TRUE)
+
+```
+
+### Qu9 
+```{r }
+x <- 1:4 
+y <- 2:3
+x+y
+class(x+y)
+
+```
+
+### Qu10
+
+```{r}
+x <-  c(3,5,1,10,12,6)
+x[x<6] <- 0
+x
+
+```
+
+### Qu11-20
+```{r Q1}
+colnames(Q1)
+head(Q1,2)
+tail(Q1,n = 2)
+Q1$Ozone[[47]]
+table(is.na(Q1$Ozone))[[2]]
+mean(Q1[[1]],na.rm = T)
+mean(Q1[Q1$Ozone>31 & Q1$Temp>90,][[2]],na.rm = T)
+mean(Q1$Temp[Q1$Month==6])
+max(Q1$Ozone[Q1$Month==5],na.rm = T)
+
+```
+
