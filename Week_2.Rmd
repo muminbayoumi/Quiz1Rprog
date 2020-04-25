@@ -1,0 +1,96 @@
+---
+title: "Week 2"
+author: "Mumin Mohamed"
+date:  "25/04/20"
+output: html_notebook
+---
+
+This my first attempt at writing functions. I opted to use Markdown to note any comments I have.
+
+##Functions(Part 1)
+###Function 1 
+
+```{r}
+add2 <- function(x,y){
+  x+y
+}
+add2(8,2)
+```
+### Function 2 
+```{r}
+aboveN <-  function(x,n=10) {
+  use <-  x>n
+  print(x[use])
+  paste('Cutoff Value is >',n)
+}
+aboveN(rnorm(20,10,4))
+```
+
+### Function 3
+I forgot to add the '1:' part of 1:nc   inptut for the for loop. It makes sense and probably wont forget it it again. The for loop need a sequence to loop on. if  write just nc the for loop will assume as sequence of 1 and use that number which would correspond with the last column
+```{r}
+#initial attempt failed
+columnmeans <- function(y,removeNA=T){
+  nc <- ncol(y)
+  means <- numeric(nc)
+  for(i in nc){
+    means[i] <- mean(y[,i],na.rm=removeNA)
+  }
+  means
+}
+columnmeans(airquality)
+
+
+#second attempt yipeee
+columnmeans <- function(y,removeNA=T){
+  nc <- ncol(y)
+  means <- numeric(nc)
+  for(i in 1:nc){
+    means[i] <- mean(y[,i],na.rm=removeNA)
+  }
+  means
+}
+
+columnmeans(airquality)
+
+```
+
+***
+##Functions(Part 2)
+
+Lexical Scoping trial. 
+```{r}
+z <- 4
+eq <-  function(x,y,z){
+  x+y/z^2
+}
+eq(2,4)
+```
+My understanding was that if z is assigned to the global environment it would be searched for wihin the functions parent environment. This doesn't seem to be happening ...
+
+```{r}
+ make.power <- function(n){
+   pow <- function(x){
+     x^n
+   }
+   pow
+ }
+make.power(4)
+pow(2)
+```
+So pow was created under make.power as the parent environment. unless i actively assign to a value in the global environment , it  can't be used outside of the make power function
+```{r}
+#attempt at using function to create a usable function in GE
+make.power <- function(n){
+   pow <- function(x){
+     x^n
+     }
+  
+}
+pow<- make.power(3)
+pow(4)
+
+```
+I couldnt assign to GE from within the function
+
+
