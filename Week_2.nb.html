@@ -245,6 +245,16 @@ $(document).ready(function () {
 
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#functionspart-1">Functions(Part 1)</a><ul>
+<li><a href="#function-1">Function 1</a></li>
+<li><a href="#function-2">Function 2</a></li>
+<li><a href="#function-3">Function 3</a></li>
+</ul></li>
+<li><a href="#functionspart-2">Functions(Part 2)</a></li>
+</ul>
+</div>
 
 <!-- rnb-text-begin -->
 <p>This my first attempt at writing functions. I opted to use Markdown to note any comments I have.</p>
@@ -254,9 +264,11 @@ $(document).ready(function () {
 <h3>Function 1</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWRkMig4LDIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>add2(8,2)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWRkMiA8LSBmdW5jdGlvbih4LHkpe1xuICB4K3lcbn1cbmFkZDIoOCwyKVxuYGBgIn0= -->
+<pre class="r"><code>add2 &lt;- function(x,y){
+  x+y
+}
+add2(8,2)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEwXG4ifQ== -->
 <pre><code>[1] 10</code></pre>
@@ -276,12 +288,9 @@ $(document).ready(function () {
 }
 aboveN(rnorm(20,10,4))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAxNi45NzQyMCAxMy41NjQ2MiAxNC42MTA4NFxuIFs0XSAxMy4zNTMyNCAxMS41OTI4MyAxMy4yNzM5NVxuIFs3XSAxMS41NTE1MCAxMy44ODYwMiAxMC4yOTU2NFxuWzEwXSAxMy40NjU5NiAxMi45ODQ4OSAxNS43NzQyOFxuWzEzXSAxMS4zMTIxNFxuWzFdIFwiQ3V0b2ZmIFZhbHVlIGlzID4gMTBcIlxuIn0= -->
-<pre><code> [1] 16.97420 13.56462 14.61084
- [4] 13.35324 11.59283 13.27395
- [7] 11.55150 13.88602 10.29564
-[10] 13.46596 12.98489 15.77428
-[13] 11.31214
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSAxMS4zMTE4OCAxMS44NzM1NSAxNS40NDcwMSAxNy41NzY5MiAxNS4yNTY0MyAxNC45MzE1MSAxMi41MDA5MSAxMC42MzU2NCAxMi4wNTgwNlxuWzEwXSAxMC43MDc3M1xuWzFdIFwiQ3V0b2ZmIFZhbHVlIGlzID4gMTBcIlxuIn0= -->
+<pre><code> [1] 11.31188 11.87355 15.44701 17.57692 15.25643 14.93151 12.50091 10.63564 12.05806
+[10] 10.70773
 [1] &quot;Cutoff Value is &gt; 10&quot;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -292,33 +301,17 @@ aboveN(rnorm(20,10,4))</code></pre>
 <p>I forgot to add the ‘1:’ part of 1:nc inptut for the for loop. It makes sense and probably wont forget it it again. The for loop need a sequence to loop on. if write just nc the for loop will assume as sequence of 1 and use that number which would correspond with the last column</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2luaXRpYWwgYXR0ZW1wdCBmYWlsZWRcbmNvbHVtbm1lYW5zIDwtIGZ1bmN0aW9uKHkscmVtb3ZlTkE9VCl7XG4gIG5jIDwtIG5jb2woeSlcbiAgbWVhbnMgPC0gbnVtZXJpYyhuYylcbiAgZm9yKGkgaW4gbmMpe1xuICAgIG1lYW5zW2ldIDwtIG1lYW4oeVssaV0sbmEucm09cmVtb3ZlTkEpXG4gIH1cbiAgbWVhbnNcbn1cbmNvbHVtbm1lYW5zKGFpcnF1YWxpdHkpXG5gYGAifQ== -->
-<pre class="r"><code>#initial attempt failed
-columnmeans &lt;- function(y,removeNA=T){
-  nc &lt;- ncol(y)
-  means &lt;- numeric(nc)
-  for(i in nc){
-    means[i] &lt;- mean(y[,i],na.rm=removeNA)
-  }
-  means
-}
-columnmeans(airquality)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI2luaXRpYWwgYXR0ZW1wdCBmYWlsZWRcbmNvbHVtbm1lYW5zIDwtIGZ1bmN0aW9uKHkscmVtb3ZlTkE9VCl7XG4gIG5jIDwtIG5jb2woeSlcbiAgbWVhbnMgPC0gbnVtZXJpYyhuYylcbiAgZm9yKGkgaW4gbmMpe1xuICAgIG1lYW5zW2ldIDwtIG1lYW4oeVssaV0sbmEucm09cmVtb3ZlTkEpXG4gIH1cbiAgbWVhbnNcbn1cbmNvbHVtbm1lYW5zKGFpcnF1YWxpdHkpXG5gYGBcbmBgYCJ9 -->
+<p><code>r</code>r #initial attempt failed columnmeans &lt;- function(y,removeNA=T){ nc &lt;- ncol(y) means &lt;- numeric(nc) for(i in nc){ means[i] &lt;- mean(y[,i],na.rm=removeNA) } means } columnmeans(airquality)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdICAwLjAwMDAwICAwLjAwMDAwICAwLjAwMDAwXG5bNF0gIDAuMDAwMDAgIDAuMDAwMDAgMTUuODAzOTJcbiJ9 -->
 <pre><code>[1]  0.00000  0.00000  0.00000
 [4]  0.00000  0.00000 15.80392</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3NlY29uZCBhdHRlbXB0IHlpcGVlZVxuY29sdW1ubWVhbnMgPC0gZnVuY3Rpb24oeSxyZW1vdmVOQT1UKXtcbiAgbmMgPC0gbmNvbCh5KVxuICBtZWFucyA8LSBudW1lcmljKG5jKVxuICBmb3IoaSBpbiAxOm5jKXtcbiAgICBtZWFuc1tpXSA8LSBtZWFuKHlbLGldLG5hLnJtPXJlbW92ZU5BKVxuICB9XG4gIG1lYW5zXG59XG5jb2x1bW5tZWFucyhhaXJxdWFsaXR5KVxuYGBgIn0= -->
-<pre class="r"><code>#second attempt yipeee
-columnmeans &lt;- function(y,removeNA=T){
-  nc &lt;- ncol(y)
-  means &lt;- numeric(nc)
-  for(i in 1:nc){
-    means[i] &lt;- mean(y[,i],na.rm=removeNA)
-  }
-  means
-}
-columnmeans(airquality)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI3NlY29uZCBhdHRlbXB0IHlpcGVlZVxuY29sdW1ubWVhbnMgPC0gZnVuY3Rpb24oeSxyZW1vdmVOQT1UKXtcbiAgbmMgPC0gbmNvbCh5KVxuICBtZWFucyA8LSBudW1lcmljKG5jKVxuICBmb3IoaSBpbiAxOm5jKXtcbiAgICBtZWFuc1tpXSA8LSBtZWFuKHlbLGldLG5hLnJtPXJlbW92ZU5BKVxuICB9XG4gIG1lYW5zXG59XG5jb2x1bW5tZWFucyhhaXJxdWFsaXR5KVxuYGBgXG5gYGAifQ== -->
+<p><code>r</code>r #second attempt yipeee columnmeans &lt;- function(y,removeNA=T){ nc &lt;- ncol(y) means &lt;- numeric(nc) for(i in 1:nc){ means[i] &lt;- mean(y[,i],na.rm=removeNA) } means } columnmeans(airquality)</p>
+<pre><code></code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdICA0Mi4xMjkzMTAgMTg1LjkzMTUwNyAgIDkuOTU3NTE2XG5bNF0gIDc3Ljg4MjM1MyAgIDYuOTkzNDY0ICAxNS44MDM5MjJcbiJ9 -->
 <pre><code>[1]  42.129310 185.931507   9.957516
@@ -334,44 +327,64 @@ columnmeans(airquality)</code></pre>
 <p>Lexical Scoping trial.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXEoMiw0KVxuXG5gYGAifQ== -->
-<pre class="r"><code>eq(2,4)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueiA8LSA0XG5lcSA8LSAgZnVuY3Rpb24oeCx5LHope1xuICB4K3kvel4yXG59XG5gYGAifQ== -->
+<pre class="r"><code>z &lt;- 4
+eq &lt;-  function(x,y,z){
+  x+y/z^2
+}</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZXEoMiwgNCkgOiBhcmd1bWVudCBcInpcIiBpcyBtaXNzaW5nLCB3aXRoIG5vIGRlZmF1bHRcbiJ9 -->
-<pre><code>Error in eq(2, 4) : argument &quot;z&quot; is missing, with no default</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>My understanding was that if z is assigned to the global environment it would be searched for wihin the functions parent environment. This doesn’t seem to be happening …</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93KDIpXG5cbmBgYCJ9 -->
-<pre class="r"><code>pow(2)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWFrZS5wb3dlciA8LSBmdW5jdGlvbihuKXtcbiAgcG93IDwtIGZ1bmN0aW9uKHgpe1xuICAgIHheblxuICB9XG4gIHBvd1xufVxubWFrZS5wb3dlcig0KVxuYGBgIn0= -->
+<pre class="r"><code>make.power &lt;- function(n){
+  pow &lt;- function(x){
+    x^n
+  }
+  pow
+}
+make.power(4)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gcG93KDIpIDogY291bGQgbm90IGZpbmQgZnVuY3Rpb24gXCJwb3dcIlxuIn0= -->
-<pre><code>Error in pow(2) : could not find function &quot;pow&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiZnVuY3Rpb24oeCl7XG4gICAgeF5uXG4gIH1cbjxlbnZpcm9ubWVudDogMHg4ZjUxOWQ4PlxuIn0= -->
+<pre><code>function(x){
+    x^n
+  }
+&lt;environment: 0x8f519d8&gt;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93KDIpXG5gYGAifQ== -->
+<pre class="r"><code>pow(2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDhcbiJ9 -->
+<pre><code>[1] 8</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>So pow was created under make.power as the parent environment. unless i actively assign to a value in the global environment , it can’t be used outside of the make power function</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93KDQpXG5cbmBgYCJ9 -->
-<pre class="r"><code>pow(4)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2F0dGVtcHQgYXQgdXNpbmcgZnVuY3Rpb24gdG8gY3JlYXRlIGEgdXNhYmxlIGZ1bmN0aW9uIGluIEdFXG5tYWtlLnBvd2VyIDwtIGZ1bmN0aW9uKG4pe1xuICBwb3cgPC0gZnVuY3Rpb24oeCl7XG4gICAgeF5uXG4gIH1cbiAgXG59XG5wb3c8LSBtYWtlLnBvd2VyKDMpXG5wb3coNClcbmBgYCJ9 -->
+<pre class="r"><code>#attempt at using function to create a usable function in GE
+make.power &lt;- function(n){
+  pow &lt;- function(x){
+    x^n
+  }
+  
+}
+pow&lt;- make.power(3)
+pow(4)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDY0XG4ifQ== -->
 <pre><code>[1] 64</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>I couldnt assign to GE from within the function</p>
+<p>I couldnt assign to GE from within the function.</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2VlayAyIgphdXRob3I6ICJNdW1pbiBNb2hhbWVkIgpkYXRlOiAgIjI1LzA0LzIwIgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpUaGlzIG15IGZpcnN0IGF0dGVtcHQgYXQgd3JpdGluZyBmdW5jdGlvbnMuIEkgb3B0ZWQgdG8gdXNlIE1hcmtkb3duIHRvIG5vdGUgYW55IGNvbW1lbnRzIEkgaGF2ZS4KCiMjRnVuY3Rpb25zKFBhcnQgMSkKIyMjRnVuY3Rpb24gMSAKCmBgYHtyfQphZGQyIDwtIGZ1bmN0aW9uKHgseSl7CiAgeCt5Cn0KYWRkMig4LDIpCmBgYAojIyMgRnVuY3Rpb24gMiAKYGBge3J9CmFib3ZlTiA8LSAgZnVuY3Rpb24oeCxuPTEwKSB7CiAgdXNlIDwtICB4Pm4KICBwcmludCh4W3VzZV0pCiAgcGFzdGUoJ0N1dG9mZiBWYWx1ZSBpcyA+JyxuKQp9CmFib3ZlTihybm9ybSgyMCwxMCw0KSkKYGBgCgojIyMgRnVuY3Rpb24gMwpJIGZvcmdvdCB0byBhZGQgdGhlICcxOicgcGFydCBvZiAxOm5jICAgaW5wdHV0IGZvciB0aGUgZm9yIGxvb3AuIEl0IG1ha2VzIHNlbnNlIGFuZCBwcm9iYWJseSB3b250IGZvcmdldCBpdCBpdCBhZ2Fpbi4gVGhlIGZvciBsb29wIG5lZWQgYSBzZXF1ZW5jZSB0byBsb29wIG9uLiBpZiAgd3JpdGUganVzdCBuYyB0aGUgZm9yIGxvb3Agd2lsbCBhc3N1bWUgYXMgc2VxdWVuY2Ugb2YgMSBhbmQgdXNlIHRoYXQgbnVtYmVyIHdoaWNoIHdvdWxkIGNvcnJlc3BvbmQgd2l0aCB0aGUgbGFzdCBjb2x1bW4KYGBge3J9CiNpbml0aWFsIGF0dGVtcHQgZmFpbGVkCmNvbHVtbm1lYW5zIDwtIGZ1bmN0aW9uKHkscmVtb3ZlTkE9VCl7CiAgbmMgPC0gbmNvbCh5KQogIG1lYW5zIDwtIG51bWVyaWMobmMpCiAgZm9yKGkgaW4gbmMpewogICAgbWVhbnNbaV0gPC0gbWVhbih5WyxpXSxuYS5ybT1yZW1vdmVOQSkKICB9CiAgbWVhbnMKfQpjb2x1bW5tZWFucyhhaXJxdWFsaXR5KQoKCiNzZWNvbmQgYXR0ZW1wdCB5aXBlZWUKY29sdW1ubWVhbnMgPC0gZnVuY3Rpb24oeSxyZW1vdmVOQT1UKXsKICBuYyA8LSBuY29sKHkpCiAgbWVhbnMgPC0gbnVtZXJpYyhuYykKICBmb3IoaSBpbiAxOm5jKXsKICAgIG1lYW5zW2ldIDwtIG1lYW4oeVssaV0sbmEucm09cmVtb3ZlTkEpCiAgfQogIG1lYW5zCn0KCmNvbHVtbm1lYW5zKGFpcnF1YWxpdHkpCgpgYGAKCioqKgojI0Z1bmN0aW9ucyhQYXJ0IDIpCgpMZXhpY2FsIFNjb3BpbmcgdHJpYWwuIApgYGB7cn0KeiA8LSA0CmVxIDwtICBmdW5jdGlvbih4LHkseil7CiAgeCt5L3peMgp9CmVxKDIsNCkKYGBgCk15IHVuZGVyc3RhbmRpbmcgd2FzIHRoYXQgaWYgeiBpcyBhc3NpZ25lZCB0byB0aGUgZ2xvYmFsIGVudmlyb25tZW50IGl0IHdvdWxkIGJlIHNlYXJjaGVkIGZvciB3aWhpbiB0aGUgZnVuY3Rpb25zIHBhcmVudCBlbnZpcm9ubWVudC4gVGhpcyBkb2Vzbid0IHNlZW0gdG8gYmUgaGFwcGVuaW5nIC4uLgoKYGBge3J9CiBtYWtlLnBvd2VyIDwtIGZ1bmN0aW9uKG4pewogICBwb3cgPC0gZnVuY3Rpb24oeCl7CiAgICAgeF5uCiAgIH0KICAgcG93CiB9Cm1ha2UucG93ZXIoNCkKcG93KDIpCmBgYApTbyBwb3cgd2FzIGNyZWF0ZWQgdW5kZXIgbWFrZS5wb3dlciBhcyB0aGUgcGFyZW50IGVudmlyb25tZW50LiB1bmxlc3MgaSBhY3RpdmVseSBhc3NpZ24gdG8gYSB2YWx1ZSBpbiB0aGUgZ2xvYmFsIGVudmlyb25tZW50ICwgaXQgIGNhbid0IGJlIHVzZWQgb3V0c2lkZSBvZiB0aGUgbWFrZSBwb3dlciBmdW5jdGlvbgpgYGB7cn0KI2F0dGVtcHQgYXQgdXNpbmcgZnVuY3Rpb24gdG8gY3JlYXRlIGEgdXNhYmxlIGZ1bmN0aW9uIGluIEdFCm1ha2UucG93ZXIgPC0gZnVuY3Rpb24obil7CiAgIHBvdyA8LSBmdW5jdGlvbih4KXsKICAgICB4Xm4KICAgICB9CiAgCn0KcG93PC0gbWFrZS5wb3dlcigzKQpwb3coNCkKCmBgYApJIGNvdWxkbnQgYXNzaWduIHRvIEdFIGZyb20gd2l0aGluIHRoZSBmdW5jdGlvbgoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiV2VlayAyIgphdXRob3I6ICJNdW1pbiBNb2hhbWVkIgpkYXRlOiAgIjI1LzA0LzIwIgpvdXRwdXQ6IAogIGh0bWxfbm90ZWJvb2s6IAogICAgZmlnX2NhcHRpb246IHllcwogICAgdG9jOiB5ZXMKIAotLS0KClRoaXMgbXkgZmlyc3QgYXR0ZW1wdCBhdCB3cml0aW5nIGZ1bmN0aW9ucy4gSSBvcHRlZCB0byB1c2UgTWFya2Rvd24gdG8gbm90ZSBhbnkKY29tbWVudHMgSSBoYXZlLgoKIyNGdW5jdGlvbnMoUGFydCAxKQojIyNGdW5jdGlvbiAxIAoKYGBge3J9CmFkZDIgPC0gZnVuY3Rpb24oeCx5KXsKICB4K3kKfQphZGQyKDgsMikKCmBgYAojIyMgRnVuY3Rpb24gMiAKYGBge3J9CmFib3ZlTiA8LSAgZnVuY3Rpb24oeCxuPTEwKSB7CiAgdXNlIDwtICB4Pm4KICBwcmludCh4W3VzZV0pCiAgcGFzdGUoJ0N1dG9mZiBWYWx1ZSBpcyA+JyxuKQp9CmFib3ZlTihybm9ybSgyMCwxMCw0KSkKYGBgCgojIyMgRnVuY3Rpb24gMwpJIGZvcmdvdCB0byBhZGQgdGhlICcxOicgcGFydCBvZiAxOm5jICAgaW5wdHV0IGZvciB0aGUgZm9yIGxvb3AuIEl0IG1ha2VzIHNlbnNlIAphbmQgcHJvYmFibHkgd29udCBmb3JnZXQgaXQgaXQgYWdhaW4uIFRoZSBmb3IgbG9vcCBuZWVkIGEgc2VxdWVuY2UgdG8gbG9vcCBvbi4gCmlmICB3cml0ZSBqdXN0IG5jIHRoZSBmb3IgbG9vcCB3aWxsIGFzc3VtZSBhcyBzZXF1ZW5jZSBvZiAxIGFuZCB1c2UgdGhhdCBudW1iZXIKd2hpY2ggd291bGQgY29ycmVzcG9uZCB3aXRoIHRoZSBsYXN0IGNvbHVtbgpgYGB7cn0KI2luaXRpYWwgYXR0ZW1wdCBmYWlsZWQKY29sdW1ubWVhbnMgPC0gZnVuY3Rpb24oeSxyZW1vdmVOQT1UKXsKICBuYyA8LSBuY29sKHkpCiAgbWVhbnMgPC0gbnVtZXJpYyhuYykKICBmb3IoaSBpbiBuYyl7CiAgICBtZWFuc1tpXSA8LSBtZWFuKHlbLGldLG5hLnJtPXJlbW92ZU5BKQogIH0KICBtZWFucwp9CmNvbHVtbm1lYW5zKGFpcnF1YWxpdHkpCgoKI3NlY29uZCBhdHRlbXB0IHlpcGVlZQpjb2x1bW5tZWFucyA8LSBmdW5jdGlvbih5LHJlbW92ZU5BPVQpewogIG5jIDwtIG5jb2woeSkKICBtZWFucyA8LSBudW1lcmljKG5jKQogIGZvcihpIGluIDE6bmMpewogICAgbWVhbnNbaV0gPC0gbWVhbih5WyxpXSxuYS5ybT1yZW1vdmVOQSkKICB9CiAgbWVhbnMKfQoKY29sdW1ubWVhbnMoYWlycXVhbGl0eSkKCmBgYAoKKioqCiMjRnVuY3Rpb25zKFBhcnQgMikKCkxleGljYWwgU2NvcGluZyB0cmlhbC4gCmBgYHtyIH0KeiA8LSA0CmVxIDwtICBmdW5jdGlvbih4LHkseil7CiAgeCt5L3peMgp9CgpgYGAKTXkgdW5kZXJzdGFuZGluZyB3YXMgdGhhdCBpZiB6IGlzIGFzc2lnbmVkIHRvIHRoZSBnbG9iYWwgZW52aXJvbm1lbnQgaXQgd291bGQgCmJlIHNlYXJjaGVkIGZvciB3aWhpbiB0aGUgZnVuY3Rpb25zIHBhcmVudCBlbnZpcm9ubWVudC4gVGhpcyBkb2Vzbid0IHNlZW0gdG8gYmUgCmhhcHBlbmluZyAuLi4KCmBgYHtyfQptYWtlLnBvd2VyIDwtIGZ1bmN0aW9uKG4pewogIHBvdyA8LSBmdW5jdGlvbih4KXsKICAgIHhebgogIH0KICBwb3cKfQptYWtlLnBvd2VyKDQpCnBvdygyKQpgYGAKU28gcG93IHdhcyBjcmVhdGVkIHVuZGVyIG1ha2UucG93ZXIgYXMgdGhlIHBhcmVudCBlbnZpcm9ubWVudC4gdW5sZXNzIGkgYWN0aXZlbHkKYXNzaWduIHRvIGEgdmFsdWUgaW4gdGhlIGdsb2JhbCBlbnZpcm9ubWVudCAsIGl0ICBjYW4ndCBiZSB1c2VkIG91dHNpZGUgb2YgdGhlCm1ha2UgcG93ZXIgZnVuY3Rpb24KYGBge3J9CiNhdHRlbXB0IGF0IHVzaW5nIGZ1bmN0aW9uIHRvIGNyZWF0ZSBhIHVzYWJsZSBmdW5jdGlvbiBpbiBHRQptYWtlLnBvd2VyIDwtIGZ1bmN0aW9uKG4pewogIHBvdyA8LSBmdW5jdGlvbih4KXsKICAgIHhebgogIH0KICAKfQpwb3c8LSBtYWtlLnBvd2VyKDMpCnBvdyg0KQoKYGBgCkkgY291bGRudCBhc3NpZ24gdG8gR0UgZnJvbSB3aXRoaW4gdGhlIGZ1bmN0aW9uLgoKCg==</div>
 
 
 
