@@ -1,10 +1,10 @@
-complete <- function(directory,id=1:322){
+complete <- function(directory,id=1:332){
   D <- paste0(getwd(),"/",directory,"/")
  monitorlist <-  dir(D)
  
- data <- matrix(data=NA,nrow = 322,ncol=2)
+ data <- matrix(data=NA,nrow = 332,ncol=2)
  colnames(data) <- c('ids','nobs')
- data[,'ids'] <- 1:322
+ data[,'ids'] <- 1:332
  
  
  
@@ -16,5 +16,9 @@ complete <- function(directory,id=1:322){
   data[i,2] <- nobs
   
  }
- na.omit(as.data.frame(data))
+ as.data.frame(na.omit(data))
 }
+
+
+
+

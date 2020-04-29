@@ -14,6 +14,6 @@ pollutantmean <- function(directory,pollutant,id,narm=T){
 }
 
 ##Trials
-cat(pollutantmean("specdata", "sulfate", 1:10))
+cat("Sulfate 1-10  ",pollutantmean("specdata", "sulfate", 1:10))
 
-cat(pollutantmean("specdata", "nitrate", 70:72))
+cat("Nitrate 70-72 ",pollutantmean("specdata", "nitrate", 70:72))
